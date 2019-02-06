@@ -1,5 +1,4 @@
 
-from fastkml import kml
 from bs4 import BeautifulSoup
 
 id_lat_long = []
@@ -9,6 +8,9 @@ my_long = []
 
 
 kml_file = "BlueTrail.kml"
+# kml_file = "GreenTrail.kml"
+# kml_file = "OrangeTrail.kml"
+# kml_file = "RedTrail.kml"
 
 with open(kml_file, 'rt')as myfile:
     doc = myfile.read().encode('utf-8')
@@ -21,7 +23,7 @@ soup = BeautifulSoup(doc, "xml")
 
 for coord in soup.find_all('Placemark'):
     for coords in coord.find_all('coordinates'):
-        # coordinates coems with a ,0 at the end so i want to remove it
+        # coordinates comes with a ,0 at the end so I want to remove it
         my_latlongs = coords.text.replace(',0', '').split(",")
         # removes the empty space
     my_lat.append(my_latlongs[1].split())
