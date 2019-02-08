@@ -6,10 +6,17 @@ my_latlongs = []
 my_lat = []
 my_long = []
 
-
+i = 10
 kml_file = "BlueTrail.kml"
+
+
+# i = 154
 # kml_file = "GreenTrail.kml"
+
+# i = 250
 # kml_file = "OrangeTrail.kml"
+
+# i = 350
 # kml_file = "RedTrail.kml"
 
 with open(kml_file, 'rt')as myfile:
@@ -31,7 +38,6 @@ for coord in soup.find_all('Placemark'):
 
 
 # put my id, lat and long into a new list
-i = 11
 while i < len(my_lat):
     value = [i+1] + my_lat[i] + my_long[i]
     id_lat_long.append(value)
