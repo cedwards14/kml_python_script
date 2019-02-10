@@ -29,6 +29,7 @@ soup = BeautifulSoup(doc, "xml")
 
 
 for coord in soup.find_all('Placemark'):
+    print(coord)
     for coords in coord.find_all('coordinates'):
         # coordinates comes with a ,0 at the end so I want to remove it
         my_latlongs = coords.text.replace(',0', '').split(",")

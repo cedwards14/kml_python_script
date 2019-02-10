@@ -1,4 +1,5 @@
 
+ insert into Polylines(polylineId, cityId, markerId, trailId, lat, long) values(11, 1, 40, 2, 51.1768359, -115.6296665);
  insert into Polylines(polylineId, cityId, markerId, trailId, lat, long) values(12, 1, 40, 2, 51.1768628, -115.6291247);
  insert into Polylines(polylineId, cityId, markerId, trailId, lat, long) values(13, 1, 40, 2, 51.176994, -115.6279579);
  insert into Polylines(polylineId, cityId, markerId, trailId, lat, long) values(14, 1, 40, 2, 51.1771184, -115.6269011);
