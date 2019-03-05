@@ -9,24 +9,24 @@ my_markers = []
 
 # marker_id = 1
 # trail_id = 1
-# kml_file = "greenTrail.kml"
+# kml_file = "kml_to_insert_builder\GreenTrail.kml"
 
-# marker_id = 320
+# marker_id = 319
 # trail_id = 2
-# kml_file = "blueTrail.kml"
+# kml_file = "kml_to_insert_builder\BlueTrail.kml"
 
 
-# marker_id = 480
+# marker_id = 479
 # trail_id = 3
-# kml_file = "redTrail.kml"
+# kml_file = "kml_to_insert_builder\Redtrail.kml"
 
 
-marker_id = 580
+marker_id = 583
 trail_id = 4
-kml_file = "orangeTrail.kml"
+kml_file = "kml_to_insert_builder\OrangeTrail.kml"
 
 
-with open(kml_file, 'rt')as myfile:
+with open(kml_file,'rt')as myfile:
     doc = myfile.read().encode('utf-8')
 
 
@@ -44,6 +44,8 @@ for coord in soup.find_all('Placemark'):
     my_long.append(my_latlongs[0].split())
 
 
+print(len(my_lat))
+print(len(my_markers))
 i = 0
 # put my id, lat and long into a new list
 while i < len(my_lat):
@@ -55,11 +57,11 @@ while i < len(my_lat):
     marker_id += 1
 
 
-file = open("latLong.txt", "w")
+file = open("kml_to_insert_builder\latLong.txt", "w")
 for item in id_lat_long:
     value = """\n insert into Polylines(polylineId, cityId, markerId, trailId, lat, long) values({0}, 1, {3}, {4}, {1}, {2});""".format(
         item[0], item[1], item[2], item[3], item[4])
     file.write(value)
 
 
-print(len(id_lat_long))
+# print(len(id_lat_long))
