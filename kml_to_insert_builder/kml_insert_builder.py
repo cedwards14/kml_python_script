@@ -9,24 +9,24 @@ my_markers = []
 
 # marker_id = 1
 # trail_id = 1
-# kml_file = "kml_to_insert_builder\GreenTrail.kml"
+# kml_file = "GreenTrail.kml"
 
-# marker_id = 319
-# trail_id = 2
-# kml_file = "kml_to_insert_builder\BlueTrail.kml"
+marker_id = 334
+trail_id = 2
+kml_file = "BlueTrail.kml"
 
 
-# marker_id = 479
+# marker_id = 484
 # trail_id = 3
-# kml_file = "kml_to_insert_builder\Redtrail.kml"
+# kml_file = "RedTrail.kml"
 
 
-marker_id = 583
-trail_id = 4
-kml_file = "kml_to_insert_builder\OrangeTrail.kml"
+# marker_id = 593
+# trail_id = 4
+# kml_file = "OrangeTrail.kml"
 
 
-with open(kml_file,'rt')as myfile:
+with open(kml_file, 'rt')as myfile:
     doc = myfile.read().encode('utf-8')
 
 
@@ -57,11 +57,11 @@ while i < len(my_lat):
     marker_id += 1
 
 
-file = open("kml_to_insert_builder\latLong.txt", "w")
+file = open("latLong.txt", "w")
 for item in id_lat_long:
     value = """\n insert into Polylines(polylineId, cityId, markerId, trailId, lat, long) values({0}, 1, {3}, {4}, {1}, {2});""".format(
         item[0], item[1], item[2], item[3], item[4])
     file.write(value)
 
 
-# print(len(id_lat_long))
+print(len(id_lat_long))
