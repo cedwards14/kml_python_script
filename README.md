@@ -20,4 +20,4 @@ pip install beautifulsoup4
 ```
 
 
-
+Add the KML files from google my maps into the folder and run the script for each of the trails
