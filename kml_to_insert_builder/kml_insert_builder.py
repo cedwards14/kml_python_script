@@ -11,19 +11,20 @@ my_markers = []
 # trail_id = 1
 # kml_file = "GreenTrail.kml"
 
-marker_id = 334
+marker_id = 337
 trail_id = 2
 kml_file = "BlueTrail.kml"
 
 
-# marker_id = 484
+# marker_id = 533
 # trail_id = 3
 # kml_file = "RedTrail.kml"
 
 
-# marker_id = 593
+# marker_id = 669
 # trail_id = 4
 # kml_file = "OrangeTrail.kml"
+
 
 
 with open(kml_file, 'rt')as myfile:
@@ -64,4 +65,24 @@ for item in id_lat_long:
     file.write(value)
 
 
-print(len(id_lat_long))
+# print(len(id_lat_long))
+
+markerId = 1
+trailId = 1
+index = 0
+kml_list = ["GreenTrail.kml", "BlueTrail.kml", "RedTrail.kml", "OrangeTrail.kml" ]
+
+for trail in kml_list:
+    with open(trail[index], 'rt')as myfile:
+        doc = myfile.read().encode('utf-8')
+    soup = BeautifulSoup(doc, "xml")
+    
+    for coord in soup.find_all('Placemark'):
+        for markers in coord.find_all('description'):
+            my_markers.append(markers.text)
+        for coords in coord.find_all('coordinates'):
+            # coordinates comes with a ,0 at the end so I want to remove it
+            my_latlongs = coords.text.replace(',0', '').split(",")
+            # removes the empty space
+        my_lat.append(my_latlongs[1].split())
+        my_long.append(my_latlongs[0].split())

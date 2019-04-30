@@ -11,19 +11,19 @@ my_markers = []
 # trail_id = 1
 # kml_file = "GreenTrail.kml"
 
-marker_id = 334
-trail_id = 2
-kml_file = "BlueTrail.kml"
+# marker_id = 337
+# trail_id = 2
+# kml_file = "BlueTrail.kml"
 
 
-# marker_id = 484
+# marker_id = 533
 # trail_id = 3
 # kml_file = "RedTrail.kml"
 
 
-# marker_id = 593
-# trail_id = 4
-# kml_file = "OrangeTrail.kml"
+marker_id = 669
+trail_id = 4
+kml_file = "OrangeTrail.kml"
 
 
 with open(kml_file, 'rt')as myfile:
