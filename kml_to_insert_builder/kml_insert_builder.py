@@ -13,9 +13,6 @@ i = 0
 
 kml_list = ["GreenTrail.kml", "BlueTrail.kml", "RedTrail.kml", "OrangeTrail.kml" ]
 
-
-print(kml_list)
-
 for trail in kml_list:
     with open(trail, 'rt')as myfile:
         doc = myfile.read().encode('utf-8')
@@ -29,7 +26,6 @@ for trail in kml_list:
         my_lat.append(my_latlongs[1].split())
         my_long.append(my_latlongs[0].split())
 
-  
         # put my id, lat and long into a new list
     while i < len(my_lat):
         value = [markerId] + my_lat[i] + my_long[i]
@@ -38,7 +34,6 @@ for trail in kml_list:
         i += 1
         markerId += 1    
     trailId+=1
-print(id_lat_long)
 
 file = open("latLong.txt", "w")
 for item in id_lat_long:
